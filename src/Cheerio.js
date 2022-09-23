@@ -1,7 +1,7 @@
-const cheerio = require('cheerio')
+import cheerio from 'cheerio'
 
 // Attributes
-exports.attrImpl = function(nothing, just, name, cheerioInst) {
+export function attrImpl(nothing, just, name, cheerioInst) {
 
   if (cheerioInst.length > 0) {
     const value = cheerioInst.attr(name);
@@ -11,57 +11,57 @@ exports.attrImpl = function(nothing, just, name, cheerioInst) {
   return nothing;
 }
 
-exports.hasClassImpl = function(className, cheerioInst) {
+export function hasClassImpl(className, cheerioInst) {
   return cheerioInst.hasClass(className);
 }
 
 // Traversing
-exports.findImpl = function(selector, cheerioInst) {
+export function findImpl(selector, cheerioInst) {
   return cheerioInst.find(selector);
 }
 
-exports.parent = function(cheerioInst) {
+export function parent(cheerioInst) {
   return cheerioInst.parent()
 }
 
-exports.next = function(cheerioInst) {
+export function next(cheerioInst) {
   return cheerioInst.next()
 }
 
-exports.prev = function(cheerioInst) {
+export function prev(cheerioInst) {
   return cheerioInst.prev()
 }
 
-exports.siblings = function(cheerioInst) {
+export function siblings(cheerioInst) {
   return cheerioInst.siblings()
 }
 
-exports.children = function(cheerioInst) {
+export function children(cheerioInst) {
   return cheerioInst.children()
 }
 
-exports.first = function(cheerioInst) {
+export function first(cheerioInst) {
   return cheerioInst.first()
 }
 
-exports.last = function(cheerioInst) {
+export function last(cheerioInst) {
   return cheerioInst.last()
 }
 
-exports.eqImpl = function(index, cheerioInst) {
+export function eqImpl(index, cheerioInst) {
   return cheerioInst.eq(index)
 }
 
 // Rendering
-exports.htmlImpl = function(nothing, just, cheerioInst) {
+export function htmlImpl(nothing, just, cheerioInst) {
   return cheerioInst.length ? just(cheerioInst.html()) : nothing;
 }
 
-exports.text = function(cheerioInst) {
+export function text(cheerioInst) {
   return cheerioInst.text()
 }
 
 // Miscellaneous
-exports.length = function(cheerioInst) {
+export function length(cheerioInst) {
   return cheerioInst.length;
 }

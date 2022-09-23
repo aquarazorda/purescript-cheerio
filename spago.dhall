@@ -7,7 +7,6 @@
   , "functions"
   , "maybe"
   , "prelude"
-  , "psci-support"
   , "test-unit"
   ]
 , packages = ./packages.dhall

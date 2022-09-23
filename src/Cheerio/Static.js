@@ -1,24 +1,24 @@
-const cheerio = require('cheerio')
+import cheerio from 'cheerio'
 
 // Loading
-exports.load = cheerio.load
+export const load = cheerio.load
 
 // Selecting
-exports.selectImpl = function(str, cheerioStatic) {
+export function selectImpl(str, cheerioStatic) {
   return cheerioStatic(str)
 }
 
-exports.selectDeepImpl = function(strArr, cheerioStatic) {
+export function selectDeepImpl(strArr, cheerioStatic) {
   return cheerioStatic.apply(cheerioStatic, strArr)
 }
 
 // Rendering
-exports.htmlImpl = function(nothing, just, cheerioInst) {
+export function htmlImpl(nothing, just, cheerioInst) {
   const ret = cheerio.html(cheerioInst)
   return ret != null ? just(ret) : nothing
 }
 
 // Utilities
-exports.root = function(cheerioStatic) {
+export function root(cheerioStatic) {
   return cheerio.root.call(cheerioStatic)
 }
