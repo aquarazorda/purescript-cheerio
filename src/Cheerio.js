@@ -1,5 +1,8 @@
-import cheerio from 'cheerio'
+import * as cheerio from 'cheerio'
 
+export function load(html) {
+  return cheerio.load(html, null, false);
+}
 // Attributes
 export function attrImpl(nothing, just, name, cheerioInst) {
 
@@ -17,7 +20,7 @@ export function hasClassImpl(className, cheerioInst) {
 
 // Traversing
 export function findImpl(selector, cheerioInst) {
-  return cheerioInst.find(selector);
+  return cheerioInst(selector);
 }
 
 export function parent(cheerioInst) {
