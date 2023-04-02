@@ -15,6 +15,7 @@ module Cheerio
   , siblings
   , text
   , toArray
+  , load
   ) where
 
 import Prelude hiding (eq)
